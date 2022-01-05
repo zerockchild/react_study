@@ -1,28 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import ToDo from "./ToDo";
+import CoinTracker from "./CoinTracker";
+import MovieApp from "./MovieApp";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1>Test Commit</h1>
-        <h1>Test Commit</h1>
-        <h1>hi~!</h1>
-        <h1>Test Branch Commit</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+          <Switch>
+              <Route path="/hello">
+                  <h1>Hello</h1>
+              </Route>
+              <Route path="/movie/:id">
+                  <Detail/>
+              </Route>
+              <Route path="/">
+                  <Home />
+              </Route>
+          </Switch>
+      </Router>
+    /*<div>
+        {/!*<ToDo></ToDo>*!/}
+        {/!*<CoinTracker></CoinTracker>*!/}
+        <MovieApp></MovieApp>
+    </div>*/
   );
 }
 
